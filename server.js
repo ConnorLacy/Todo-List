@@ -70,3 +70,14 @@ app.put('/todos', (req, res) => {
       res.send(result)
     })
 })
+
+app.delete('/todos', (req, res) => {
+  db.collection('todos').findOneAndDelete(
+    //query
+    {owner: req.body.owner},
+    //callback
+    (err, result) => {
+      if (err) return res.send(500, err)
+      res.send({message: 'The last qoute by \'Me\' has been deleted'})
+    })
+})
