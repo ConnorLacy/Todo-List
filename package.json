@@ -1,0 +1,29 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "To do list using CRUD, MongoDB, Express",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConnorLacy/Todo-List.git"
+  },
+  "author": "Connor Lacy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ConnorLacy/Todo-List/issues"
+  },
+  "homepage": "https://github.com/ConnorLacy/Todo-List#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}

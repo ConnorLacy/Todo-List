@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./css/master.css">
+  </head>
+  <body>
+
+    <div class="submission-panel">
+      <!-- Data entry for client. Enters DB and returns to html via view engine -->
+      <div class="floating-container">
+        <div class="instructions">
+          <h1>Create a Todo List</h1>
+          <p>Enter a todo and the person resposible for that item below</p>
+        </div>
+
+          <form action="/todos" method="POST">
+            <input type="text" placeholder="Todo List Item" name="listItem">
+            <input type="text" placeholder="Owner" name="owner">
+            <button class="submit" type="submit">Submit</button>
+          </form>
+      </div>
+
+    </div>
+
+    <!-- EJS data injection simulating dynamic rendering -->
+    <div class="info-panel">
+      <div class="todos-container">
+        <% for(var i=0; i<todos.length; i++) {%>
+            <div class="todo-item">
+              <span class="toolbar"></span>
+              <div class="details">
+                <h3><%= todos[i].listItem %></h3>
+                <p><%= todos[i].owner %></p>
+              </div>
+            </div>
+        <% } %>
+      </div>
+    </div>
+
+  </body>
+</html>
