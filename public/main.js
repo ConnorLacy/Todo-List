@@ -1,7 +1,7 @@
 var update = document.getElementById('edit')
 var del = document.getElementById('delete')
 
-update.addEventListener('click', function() {
+update.addEventListener('click', () => {
   console.log('Edit initialized')
   fetch('todos', {
     method: 'put',
@@ -20,7 +20,7 @@ update.addEventListener('click', function() {
   })
 })
 
-del.addEventListener('click', function() {
+del.addEventListener('click', () => {
   console.log('Delete initialized')
   fetch('todos', {
     method: 'delete',
