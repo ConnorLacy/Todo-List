@@ -18,6 +18,15 @@ h1, h3, p {
   text-align: center;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: grey;
+  border-radius: 10px;
+}
+
 .submission-panel {
   display: flex;
   flex-direction: column;
@@ -33,6 +42,7 @@ h1, h3, p {
     height: 60%;
     width: 80%;
     min-width: 330px;
+    min-height: 550px;
     border-radius: 20px;
     margin-top: 20%;
     background: lightslategrey;
@@ -108,10 +118,17 @@ h1, h3, p {
     border-radius: 7px 7px 0px 0px;
     background: lightslategrey;
   }
-    .delete {
+
+    #delete, #edit {
       margin-left: 5px;
+      color: lightgrey;
+      font-weight: 700;
       cursor: pointer;
     }
+      #delete:hover, #edit:hover {
+        color: white;
+      }
+
   .details {
     display: flex;
     flex-direction: column;

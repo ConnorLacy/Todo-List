@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Todo List</title>
-    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="../css/master.css">
   </head>
   <body>
 
@@ -23,13 +23,15 @@
       </div>
 
     </div>
-
     <!-- EJS data injection simulating dynamic rendering -->
     <div class="info-panel">
       <div class="todos-container">
         <% for(var i=0; i<todos.length; i++) {%>
             <div class="todo-item">
-              <span class="toolbar"></span>
+              <span class="toolbar">
+                <span id="delete">X</span>
+                <span id="edit">Aa</span>
+              </span>
               <div class="details">
                 <h3><%= todos[i].listItem %></h3>
                 <p><%= todos[i].owner %></p>
@@ -40,4 +42,5 @@
     </div>
 
   </body>
+  <script src="../public/main.js"></script>
 </html>

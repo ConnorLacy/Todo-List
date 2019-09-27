@@ -9,7 +9,7 @@ var db
 //Here we're connecting to the MongoDB database. If a connection error occurs it will break
 //and return the error description. Otherwise, it will open the application on port 3000 with
 //a connection to our database
-MongoClient.connect('mongodb+srv://<db-user>:<password>@todo-list-ifddo.gcp.mongodb.net/test?retryWrites=true&w=majority', (err, client) => {
+MongoClient.connect('mongodb+srv://site-owner:vanillajsEXITE33@todo-list-ifddo.gcp.mongodb.net/test?retryWrites=true&w=majority', (err, client) => {
   if(err) return console.log(err)
   db = client.db('Todo-List')
   app.listen(3000, () => {
@@ -19,10 +19,13 @@ MongoClient.connect('mongodb+srv://<db-user>:<password>@todo-list-ifddo.gcp.mong
 
 //Connect styles folder to application
 app.use('/css', express.static('css'))
+//Connect public folder to application
+app.use('/public', express.static('public'))
 
 //Bodyparser is used to read data from <form> elements. Express is the utility which
 //allows us to employ packages like bodyParser
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 //In order to pull data from MongoDB and format it to HTMl without using dynamic rendering
 //frameworks like React/Angular, in this case we will be using EJS. EJS is a form engine that will
@@ -48,4 +51,22 @@ app.post('/todos', (req, res) => {
     console.log('Saved Todo to database')
     res.redirect('/')
   })
+})
+
+app.put('/todos', (req, res) => {
+  db.collection('todos').findOneAndUpdate(
+    //query
+    {owner: 'Connor'},
+    //update
+    { $set: {
+      listItem: req.body.listItem,
+      owner: req.body.owner
+      }
+    },
+    //options
+    {sort: {_id: -1}},
+    (err, result) => {
+      if (err) return result.send(err)
+      res.send(result)
+    })
 })
