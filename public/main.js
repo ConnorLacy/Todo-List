@@ -1,22 +1,28 @@
-var update = document.getElementById('edit')
-if(update){
-  update.addEventListener('click', () => {
-    console.log('Edit initialized')
-    fetch('todos', {
-      method: 'put',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        'listItem': 'This item has been removed',
-        'owner': 'Moderator'
-      })
+var recordDescriptions = document.querySelectorAll('.todo-item .details .description')
+if(recordDescriptions){
+  recordDescriptions.forEach(function (el) {
+    el.addEventListener('focusout', updateRecord, false);
+  })
+}
+
+function updateRecord(e){
+  var updatedDescription = e.currentTarget.innerText
+  console.log(updatedDescription)
+  var noteID = e.currentTarget.parentElement.parentElement.getAttribute("value")
+  fetch('todos', {
+    method: 'put',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      '_id': noteID,
+      'listItem': updatedDescription
     })
-    .then(res => {
-      if (res.ok) return res.json()
-    })
-    .then(data => {
-      console.log(data)
-      window.location.reload(true)
-    })
+  })
+  .then(res => {
+    if (res.ok) return res.json()
+  })
+  .then(data => {
+    console.log(data)
+    window.location.reload(true)
   })
 }
 

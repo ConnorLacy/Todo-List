@@ -119,13 +119,13 @@ h1, h3, p {
     background: lightslategrey;
   }
 
-    .delete, #edit {
+    .delete {
       margin-left: 5px;
       color: lightgrey;
       font-weight: 700;
       cursor: pointer;
     }
-      .delete:hover, #edit:hover {
+      .delete:hover{
         color: white;
       }
 
