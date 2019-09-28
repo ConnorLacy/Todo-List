@@ -29,13 +29,15 @@
         <% for(var i=0; i<todos.length; i++) {%>
             <div class="todo-item">
               <span class="toolbar">
-                <span id="delete">X</span>
+                <span class="delete">X
+                  <span class="noteID" hidden><%= todos[i]._id %></span>
+                </span>
                 <span id="edit">Aa</span>
               </span>
               <div class="details">
                 <h3><%= todos[i].listItem %></h3>
                 <p><%= todos[i].owner %></p>
-              </div>
+               </div>
             </div>
         <% } %>
       </div>
