@@ -10,7 +10,7 @@ var ObjectId = require('mongodb').ObjectId
 //Here we're connecting to the MongoDB database. If a connection error occurs it will break
 //and return the error description. Otherwise, it will open the application on port 3000 with
 //a connection to our database
-MongoClient.connect('mongodb+srv://db-owner:spaceFORCE2413@todo-list-ifddo.gcp.mongodb.net/test?retryWrites=true&w=majority', (err, client) => {
+MongoClient.connect('mongodb+srv://site-owner:vanillajsEXITE33@todo-list-ifddo.gcp.mongodb.net/test?retryWrites=true&w=majority', (err, client) => {
   if(err) return console.log(err)
   db = client.db('Todo-List')
   app.listen(3000, () => {
