@@ -43,7 +43,7 @@ h1, h3, p {
     display: flex;
     flex-direction: column;
     height: calc(100% - 10%);
-    min-height: 950px;
+    min-height: 880px;
     justify-content: center;
   }
     .container h1 {
