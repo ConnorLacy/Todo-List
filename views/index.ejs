@@ -9,18 +9,21 @@
 
     <div class="submission-panel">
       <!-- Data entry for client. Enters DB and returns to html via view engine -->
-      <div class="floating-container">
-        <div class="instructions">
-          <h1>Create a Todo List</h1>
-          <p>Enter a todo and the person resposible for that item below</p>
-        </div>
+      <!-- <div class="floating-container"> -->
+        <div class="branding"></div>
+        <div class="container">
+          <h1>Create a Todo List item</h1>
 
           <form action="/todos" method="POST">
-            <input type="text" placeholder="Todo List Item" name="listItem">
-            <input type="text" placeholder="Owner" name="owner">
+            <p>Enter a list item here:</p>
+            <textarea name="listItem" rows="8" cols="80"></textarea>
+            <p>and give it some details...</p>
+            <textarea name="owner" rows="8" cols="80"></textarea>
             <button class="submit" type="submit">Submit</button>
           </form>
-      </div>
+        </div>
+
+      <!-- </div> -->
 
     </div>
     <!-- EJS data injection simulating dynamic rendering -->
