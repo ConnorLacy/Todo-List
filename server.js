@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 var db
+var ObjectId = require('mongodb').ObjectId
 
 //App connection and port opening
 //Here we're connecting to the MongoDB database. If a connection error occurs it will break
@@ -72,12 +73,12 @@ app.put('/todos', (req, res) => {
 })
 
 app.delete('/todos', (req, res) => {
-  db.collection('todos').findOneAndDelete(
+  db.collection('todos').deleteOne(
     //query
-    {owner: req.body.owner},
+    {"_id": ObjectId(req.body._id)},
     //callback
     (err, result) => {
       if (err) return res.send(500, err)
-      res.send({message: 'The last qoute by \'Me\' has been deleted'})
+      res.send({message: 'Deleted Todo'})
     })
 })
