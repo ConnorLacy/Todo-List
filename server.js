@@ -55,17 +55,14 @@ app.post('/todos', (req, res) => {
 })
 
 app.put('/todos', (req, res) => {
+  console.log(`Attempting to update record ${req.body._id} with description: ${req.body.listItem}`)
   db.collection('todos').findOneAndUpdate(
     //query
-    {owner: 'Connor'},
+    {"_id": ObjectId(req.body._id)},
     //update
-    { $set: {
-      listItem: req.body.listItem,
-      owner: req.body.owner
-      }
-    },
+    { $set: {"listItem": req.body.listItem}},
     //options
-    {sort: {_id: -1}},
+    {returnNewDocument: true},
     (err, result) => {
       if (err) return result.send(err)
       res.send(result)

@@ -27,16 +27,15 @@
     <div class="info-panel">
       <div class="todos-container">
         <% for(var i=0; i<todos.length; i++) {%>
-            <div class="todo-item">
+            <div class="todo-item" value=<%= todos[i]._id %>>
               <span class="toolbar">
                 <span class="delete">X
                   <span class="noteID" hidden><%= todos[i]._id %></span>
                 </span>
-                <span id="edit">Aa</span>
               </span>
               <div class="details">
-                <h3><%= todos[i].listItem %></h3>
-                <p><%= todos[i].owner %></p>
+                <h3 class="description" contenteditable="true"><%= todos[i].listItem %></h3>
+                <p contenteditable="true"><%= todos[i].owner %></p>
                </div>
             </div>
         <% } %>
